@@ -1,20 +1,16 @@
-version: '3.8'
 services:
   identity-service:
     container_name: identity-service
     image: jameskagunga254/identity-service:latest
     restart: always
+    environment:
+      - PORT=3001
+    expose:
+      - 3001
     ports:
-      - "3001:3001"
+      - 3001:3001
     networks:
-      - backend-network
-watchtower:
-  container_name: watchtower
-  image: containrrr/watchtower
-  volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
-  command: --interval 30 identity-service wallet-service
-
+      - identity_nw
 networks:
-  backend_network:
+  identity_nw:
     driver: bridge
