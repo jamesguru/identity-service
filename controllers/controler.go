@@ -35,5 +35,5 @@ func Getidentity(c echo.Context) error {
 }
 
 func Getidentities(c echo.Context) error {
-	return c.JSON(http.StatusOK, "All identities are here.")
+	return c.JSON(http.StatusOK, "All identities are here ci/cd.")
 }
